@@ -1,4 +1,3 @@
-from xml.dom.expatbuilder import parseString
 
 
 ## Think SLICING for many of these.
@@ -7,59 +6,72 @@ def create_list_from_tuple(t):
     """
     This function takes a tuple of elements and returns a list containing those elements of the tuple.
     """
-    pass  # implement me
+    return list(t)
+    #pass  # implement me
     
 def drop_last(lst):
     """
     This function takes a list and returns a list with the last item removed.
     """
-    pass  # implement me
+    return lst[:-1]
+    #pass  # implement me
 
 
 def drop_first_two(lst):
     """
     This function takes a list and returns a list with the first two items removed.
     """
-    pass  # implement me
+    return lst[2:]
+
+    #pass  # implement me
 
 def drop_mangle(lst):
     """
     This function takes a list and returns a list with the first two items AND last item removed.
     """
-    pass  # implement me
+    n_list = drop_last(lst)
+    r_list = drop_first_two(n_list)
+    return r_list
+    #pass  # implement me
 
 def add_item_front(lst, a):
     """
     This function takes a list and an item,
     returning the list with the item prepended to the list
     """
-    pass  # implement me
+    #lst[0:0] = [a]
+    return [a, *lst]
+    #pass  # implement me
 
 def add_item_end(lst, a):
     """
     This function takes a list and an item,
     returning the list with the item appended to the list
     """
-    pass  # implement me
+    return [*lst, a]
+    #pass  # implement me
 
 def add_list_to_list(lsta, lstb):
     """
     This function takes two lists and appends one to the other,
     returning a list
     """
-    pass  # implement me
+    return [*lsta, *lstb]
+    #pass  # implement me
 
 def list_and_list_to_tuple(lsta, lstb):
     """
     This function takes two lists and returns a tuple containing the two lists
     """
-    pass # implement me
+    return [(lsta[i], lstb[i]) for i in range(0, len(lstb))]
+    #pass # implement me
 
 def list_and_list_to_list(lsta, lstb):
     """
     This function takes two lists and returns a list containing the two lists
     """
-    pass # implement me
+    return [lsta, lstb]
+    #pass # implement me
 
 ##
 ##
@@ -110,36 +122,62 @@ def concat_list_indexwise(lst1, lst2):
     then the 1st index item, and so on till the last element. 
     Any leftover items will get added at the end of the new list.
     """
-    parseString # implement me
+    # if len(lst1)  len(list2):
+    #
+    # n = []
+    # if len(lst1) == len(lst2):
+    #     for i in range(0, len(lst1)):
+    #         for j in range(0, len(lst2)):
+    #             n.append(lst1[i] + lst2[j])
+    # else:
+    #
+    #
+    #
+    # return n # implement me
 
 def square_each_item(lst):
     """
     This function returns list which each item in argument list has been squared
     (read the test)
     """
-    pass # implement me
+    return [(n * n) for n in lst]
+    #pass # implement me
 
 def remove_empty_strs(lst):
      """
      Remove empty strings from the list of strings
      """
-     pass
+     while "" in lst:
+        lst.remove("")
+     while '' in lst:
+        lst.remove('')
+     return lst
+     #pass
 
 
 def remove_item_from(lst, aaa):
     """
     Remove all occurrences of a specific item from a list.
     """
-    pass
+    while aaa in lst:
+        lst.remove(aaa)
+    return lst
+
+    #pass
 
 def leave_item_in(lst, aaa):
     """
     Leave all occurrences of a specific item in a list.
     """
-    pass
+    a: list = []
+    for item in lst:
+         if item == aaa:
+             a.append(item)
+    return a
 
 def length_of(lst):
     """
     return the length of the list
     """
-    pass
+    return len(lst)
+    #pass
